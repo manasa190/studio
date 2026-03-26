@@ -8,6 +8,7 @@ let isDeleting = false;
 let typeSpeed = 300;
 
 function type() {
+    if (!typewriterElement) return;
     const currentWord = words[wordIndex];
 
     if (isDeleting) {
@@ -45,7 +46,7 @@ if (cursorElement) {
 
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    type(); // Start typewriter
+    if (typewriterElement) type(); // Start typewriter
 });
 
 document.querySelector('.close-icon')?.addEventListener('click', () => {
@@ -61,6 +62,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('reveal');
+            observer.unobserve(entry.target); // reveal once, never hide again
         }
     });
 }, observerOptions);
@@ -308,10 +310,12 @@ window.addEventListener('load', initPremiumReveal);
 
 // Initialize Card Stacks on Load
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize both residential and commercial stacks
+    // Initialize both residential and commercial stacks (home & projects pages)
     setTimeout(() => {
         initializeCardStack('residential-stack');
         initializeCardStack('commercial-stack');
+        initializeCardStack('residential-stack-proj');
+        initializeCardStack('commercial-stack-proj');
     }, 100);
 });
 
@@ -495,16 +499,16 @@ const initTestimonialSlider = () => {
 };
 
 const initMilestoneAnimations = () => {
-    // Reveal for the paragraph
+    // Reveal for elements marked with .gsap-reveal
     gsap.utils.toArray('.gsap-reveal').forEach(el => {
-        gsap.from(el, {
+        gsap.to(el, {
             scrollTrigger: {
                 trigger: el,
                 start: 'top 85%',
                 once: true
             },
-            opacity: 0,
-            y: 30,
+            opacity: 1,
+            y: 0,
             duration: 1,
             ease: 'power3.out'
         });
@@ -571,6 +575,109 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonialSlider();
     initMilestoneAnimations();
     initFAQAccordion();
+
+    // Sticky Header
+    const header = document.querySelector('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // Mobile Menu Toggle
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuIcon && navLinks) {
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            menuIcon.classList.toggle('toggle');
+        });
+
+        // Close menu ONLY when clicking a real destination link
+        // (not parent toggles like "Services ▼" or "Residential ▶")
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const isDropdownParent = link.closest('.dropdown > a') === link ||
+                                        link.closest('.has-submenu > a') === link ||
+                                        link.parentElement.classList.contains('dropdown') && link.nextElementSibling?.classList.contains('dropdown-menu') ||
+                                        link.parentElement.classList.contains('has-submenu');
+                if (!isDropdownParent) {
+                    navLinks.classList.remove('nav-active');
+                    menuIcon.classList.remove('toggle');
+                }
+            });
+        });
+
+        // Mobile Dropdown Toggles — Services ▼
+        document.querySelectorAll('.dropdown > a').forEach(dropdownLink => {
+            dropdownLink.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const menu = dropdownLink.nextElementSibling;
+                    const arrow = dropdownLink.querySelector('.arrow-down');
+                    if (menu) menu.classList.toggle('active');
+                    if (arrow) arrow.classList.toggle('active');
+                }
+            });
+        });
+
+        // Mobile Submenu Toggles — Residential ▶ / Commercial ▶
+        document.querySelectorAll('.has-submenu > a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const submenu = link.nextElementSibling;
+                    const arrow = link.querySelector('.arrow-right');
+                    if (submenu) submenu.classList.toggle('active');
+                    if (arrow) arrow.classList.toggle('active');
+                }
+            });
+        });
+    }
+
+    // --- Animated Underline "Designing Interiors with Purpose" ---
+    const underlineContainer = document.querySelector('.animated-text-container');
+    const path = document.querySelector('.underline-path');
+    if (underlineContainer && path) {
+        // Draw underline when visible
+        gsap.to(path, {
+            scrollTrigger: {
+                trigger: underlineContainer,
+                start: 'top 85%',
+                once: true
+            },
+            strokeDashoffset: 0,
+            duration: 1.5,
+            ease: "power2.inOut"
+        });
+
+        const normalPath = "M 0,10 Q 75,0 150,10 Q 225,20 300,10";
+        const hoverPath = "M 0,10 Q 75,20 150,10 Q 225,0 300,10";
+
+        // Morph effect on hover
+        underlineContainer.addEventListener('mouseenter', () => {
+            gsap.to(path, {
+                attr: { d: hoverPath },
+                duration: 0.8,
+                ease: "power2.inOut"
+            });
+        });
+
+        underlineContainer.addEventListener('mouseleave', () => {
+            gsap.to(path, {
+                attr: { d: normalPath },
+                duration: 0.8,
+                ease: "power2.inOut"
+            });
+        });
+    }
 });
 
 
