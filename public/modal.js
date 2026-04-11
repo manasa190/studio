@@ -102,7 +102,7 @@
             // 1. Any element with a class containing 'btn'
             // 2. Any <button> element (except submits, slider controls, and specific exclusions)
             // 3. Any <a> element that is styled as a button
-            const buttons = document.querySelectorAll('.btn-primary, .btn-primary-modern, .cta-btn, .talk-btn, .discover-more, .get-quote-btn, button:not(.tab-btn):not(.neo-modal-close):not([type="submit"]):not(.carousel-btn):not(#prev-test):not(#next-test)');
+            const buttons = document.querySelectorAll('.btn-primary, .btn-primary-modern, .cta-btn, .talk-btn, .discover-more, .get-quote-btn, button:not(.tab-btn):not(.filter-btn):not(.neo-modal-close):not([type="submit"]):not(.carousel-btn):not(#prev-test):not(#next-test)');
             
             buttons.forEach(btn => {
                 btn.onclick = (e) => {

@@ -1,52 +1,6 @@
-// Typewriter Effect Logic
-const typewriterElement = document.getElementById('typewriter');
-const cursorElement = document.querySelector('.text-type__cursor');
-const words = ['Timeless', 'Luxury', 'Elegant', 'Dream'];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typeSpeed = 300;
-
-function type() {
-    if (!typewriterElement) return;
-    const currentWord = words[wordIndex];
-
-    if (isDeleting) {
-        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        typeSpeed = 100;
-    } else {
-        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        typeSpeed = 200;
-    }
-
-    if (!isDeleting && charIndex === currentWord.length) {
-        isDeleting = true;
-        typeSpeed = 2000; // Pause at end
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500;
-    }
-
-    setTimeout(type, typeSpeed);
-}
-
-// GSAP Cursor Blink
-if (cursorElement) {
-    gsap.to(cursorElement, {
-        opacity: 0,
-        duration: 0.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power2.inOut'
-    });
-}
-
+// Typewriter effect removed - replaced with React FlipWords component in main.tsx
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    if (typewriterElement) type(); // Start typewriter
 });
 
 document.querySelector('.close-icon')?.addEventListener('click', () => {
@@ -75,66 +29,7 @@ document.querySelectorAll('section').forEach(section => {
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Blur Text Animation for "Designing Interiors with Purpose"
-window.addEventListener('load', () => {
-    // Wait for fonts to load
-    document.fonts.ready.then(() => {
-        const blurTextElements = document.querySelectorAll('.split-text');
-
-        blurTextElements.forEach(element => {
-            // Get the original text
-            const text = element.textContent;
-            const words = text.split(' ');
-
-            // Clear the element
-            element.innerHTML = '';
-
-            // Create span for each word
-            const wordElements = words.map(word => {
-                const span = document.createElement('span');
-                span.className = 'blur-word';
-                span.textContent = word;
-                element.appendChild(span);
-                return span;
-            });
-
-            // Set initial state for words - blurred and offset
-            gsap.set(wordElements, {
-                opacity: 0,
-                filter: 'blur(10px)',
-                y: -50,
-                willChange: 'transform, filter, opacity'
-            });
-
-            // Create timeline for multi-step animation
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 90%',
-                    once: true
-                }
-            });
-
-            // Animate each word with stagger and multi-step blur effect
-            wordElements.forEach((word, index) => {
-                tl.to(word, {
-                    opacity: 0.5,
-                    filter: 'blur(5px)',
-                    y: 5,
-                    duration: 0.35,
-                    ease: 'power2.out'
-                }, index * 0.2) // 200ms delay between words
-                    .to(word, {
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        y: 0,
-                        duration: 0.35,
-                        ease: 'power2.out'
-                    }, index * 0.2 + 0.35); // Continue after first step
-            });
-        });
-    });
-});
+// Legacy blur text animation removed - replaced with WhisperText component in main.tsx
 
 // Premium Text Reveal Animation
 const initPremiumReveal = () => {
@@ -341,6 +236,41 @@ function initPortfolioTabs() {
         });
     });
 }
+
+// Image Lightbox Modal
+function openModal(imgSrc) {
+    let modal = document.getElementById('project-lightbox');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'project-lightbox';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; opacity: 0; transition: opacity 0.3s ease;
+            cursor: zoom-out;
+        `;
+        modal.innerHTML = `
+            <img id="lightbox-img" src="" style="max-width: 90%; max-height: 90%; border-radius: 10px; box-shadow: 0 0 50px rgba(0,0,0,0.5); transform: scale(0.9); transition: transform 0.3s ease;">
+            <span style="position: absolute; top: 30px; right: 40px; color: #fff; font-size: 40px; cursor: pointer;">&times;</span>
+        `;
+        document.body.appendChild(modal);
+        modal.onclick = () => {
+            modal.style.opacity = '0';
+            setTimeout(() => modal.style.display = 'none', 300);
+        };
+    }
+    
+    const img = document.getElementById('lightbox-img');
+    img.src = imgSrc;
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+    }, 10);
+}
+window.openModal = openModal;
 
 
 // Card Stack Animation - Matching React behavior

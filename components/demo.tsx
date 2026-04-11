@@ -1,19 +1,16 @@
-"use client";
+import React from "react";
+import { FlipWords } from "@/components/ui/flip-words";
 
-import { GradientSelector, type GradientOption } from "@/components/ui/gradient-selector-card";
-
-export default function Demo() {
-  const handleSelectionChange = (option: GradientOption, index: number) => {
-    console.log("Selected:", option.label, "Index:", index);
-  };
+export function FlipWordsDemo() {
+  const words = ["better", "cute", "beautiful", "modern"];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <GradientSelector
-        defaultSelected="5m"
-        onSelectionChange={handleSelectionChange}
-        className="w-full max-w-3xl"
-      />
+    <div className="h-[40rem] flex justify-center items-center px-4">
+      <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+        Build
+        <FlipWords words={words} /> <br />
+        websites with Aceternity UI
+      </div>
     </div>
   );
 }

@@ -1,5 +1,12 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N5JR5R8T');</script>
+    <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neo Studio | Projects</title>
     <link rel="stylesheet" href="style.css">
@@ -10,6 +17,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5JR5R8T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header>
         <nav class="container">
             <div class="logo">
@@ -23,28 +34,8 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li class="dropdown">
-        <a href="services.html">Services <span class="arrow-down">▼</span></a>
-        <ul class="dropdown-menu">
-                            <li class="has-submenu">
-                                <a href="#">Residential <span class="arrow-right">▶</span></a>
-                                <ul class="submenu">
-                                    <li><a href="economy.html">Economy</a></li>
-                                    <li><a href="elite.html">Elite</a></li>
-                                    <li><a href="luxe.html">Luxe</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="#">Commercial <span class="arrow-right">▶</span></a>
-                                <ul class="submenu">
-                                    <li><a href="industrial.html">Industrial</a></li>
-                                    <li><a href="retail.html">Retail</a></li>
-                                    <li><a href="workspaces.html">Workspaces</a></li>
-                                </ul>
-                            </li>
-        </ul>
-    </li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="blog.html">Blogs</a></li>
     <li><a href="contact.html">Contact</a></li>
 </ul>
                 <div class="menu-icon">
@@ -73,15 +64,23 @@
 
                 <div class="category-list">
                     <div class="category-item">
+                        <div class="category-img-wrap">
+                            <img src="assets/residencial interiors.jpeg" alt="Residential Interiors">
+                        </div>
                         <h3>Residential Interiors</h3>
-                        <p>Curating the Art of Living Well from modern 2 BHK flat design to expansive 3 BHK interior
-                            design.</p>
+                        <p>Curating the Art of Living Well from modern 2 BHK flat design to expansive 3 BHK interior design.</p>
                     </div>
                     <div class="category-item">
+                        <div class="category-img-wrap">
+                            <img src="assets/living room.jpeg" alt="Living Room Designs">
+                        </div>
                         <h3>Living Room Designs</h3>
                         <p>The Social Heart: Timeless living spaces tailored for connection.</p>
                     </div>
                     <div class="category-item">
+                        <div class="category-img-wrap">
+                            <img src="assets/kituchen.jpeg" alt="Kitchens">
+                        </div>
                         <h3>Kitchens</h3>
                         <p>The Culinary Studio: Functional kitchen interior design that inspires.</p>
                     </div>
@@ -90,62 +89,67 @@
         </section>
 
         <!-- Residential & Commercial Portfolio Section -->
-        <section class="portfolio-switcher" style="background: #0a1b3d;">
+        <section id="projects-portfolio" class="portfolio-section" style="padding: 100px 0; background: #fff;">
             <div class="container">
-                <div class="portfolio-tabs">
+                <div class="portfolio-controls">
                     <button class="tab-btn active" data-tab="residential">Residential</button>
                     <button class="tab-btn" data-tab="commercial">Commercial</button>
                 </div>
 
-                <div class="tab-wrapper">
+                <div class="tab-content">
+                    <!-- Residential Pane -->
                     <div class="tab-pane active" id="residential">
-                        <div class="portfolio-grid-modern">
-                            <a href="economy.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/economy.jpeg" alt="Economy Interior">
-                                </div>
-                                <div class="card-label">Economy</div>
-                            </a>
-                            <a href="elite.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/elite.jpeg" alt="Elite Interior">
-                                </div>
-                                <div class="card-label">Elite</div>
-                            </a>
-                            <a href="luxe.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/luxe.jpeg" alt="Luxe Interior">
-                                </div>
-                                <div class="card-label">Luxe</div>
-                            </a>
+                        <div class="project-card" onclick="openModal('assets/economy_hero.png')">
+                            <img src="assets/economy_hero.png" alt="Economy Residential">
+                            <div class="project-overlay">
+                                <h3>Economy</h3>
+                                <p>Smart aesthetics, smarter budget.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/elite.jpeg')">
+                            <img src="assets/elite.jpeg" alt="Elite Residential">
+                            <div class="project-overlay">
+                                <h3>Elite</h3>
+                                <p>Refined luxury for sophisticated living.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/luxe.jpeg')">
+                            <img src="assets/luxe.jpeg" alt="Luxe Residential">
+                            <div class="project-overlay">
+                                <h3>Luxe</h3>
+                                <p>Bespoke elegance without compromise.</p>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Commercial Pane -->
                     <div class="tab-pane" id="commercial">
-                        <div class="portfolio-grid-modern">
-                            <a href="industrial.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/industrial.jpeg" alt="Industrial Interior">
-                                </div>
-                                <div class="card-label">Industrial</div>
-                            </a>
-                            <a href="retail.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/retail.jpeg" alt="Retail Interior">
-                                </div>
-                                <div class="card-label">Retail</div>
-                            </a>
-                            <a href="workspaces.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/workspace.jpeg" alt="Workspaces Interior">
-                                </div>
-                                <div class="card-label">Workspaces</div>
-                            </a>
+                        <div class="project-card" onclick="openModal('assets/industrial.jpeg')">
+                            <img src="assets/industrial.jpeg" alt="Industrial">
+                            <div class="project-overlay">
+                                <h3>Industrial</h3>
+                                <p>Precision engineering and architectural scale.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/retail.jpeg')">
+                            <img src="assets/retail.jpeg" alt="Retail">
+                            <div class="project-overlay">
+                                <h3>Retail</h3>
+                                <p>Captivating brand environments and storefronts.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/workspace.jpeg')">
+                            <img src="assets/workspace.jpeg" alt="Workspace">
+                            <div class="project-overlay">
+                                <h3>Workspaces</h3>
+                                <p>Ergonomic environments built for productivity.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
 
         <section class="exclusive-partners">
@@ -219,7 +223,7 @@
                     <h2>Let's Discuss your Vision<br>Connect with us</h2>
                 </div>
                 <div class="footer-desc">
-                    <p>From outdated kitchens to tired bathrooms, we create spaces that make you fall in love with your home again.</p>
+                    <p>From outdated kitchens to tired bathrooms, we<br>create spaces that make you fall in love<br>with your home again.</p>
                 </div>
             </div>
             

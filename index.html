@@ -1,5 +1,12 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N5JR5R8T');</script>
+    <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neo Studio | Home</title>
     <link rel="stylesheet" href="style.css">
@@ -10,6 +17,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5JR5R8T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header>
         <nav class="container">
             <div class="logo">
@@ -20,10 +31,10 @@
             </div>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="#home-portfolio" class="active">Projects</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#home-portfolio">Projects</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">What we do</a></li>
-
+                    <li><a href="#services">Services</a></li>
                     <li><a href="blog.html">Blogs</a></li>
                     <li><a href="#contact">Contact</a></li>
 </ul>
@@ -39,12 +50,30 @@
     <main><section class="hero">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h3><span id="typewriter" class="text-type">Timeless</span><span class="text-type__cursor">|</span>
-                    Interiors.<br>Crafted for You.</h3>
+                <h3><span id="hero-flipwords-root" style="display: inline-block;"></span> Interiors.<br>Crafted for You.</h3>
+                <script type="module" src="/main.tsx"></script>
                 <p>As premier interior designers in Bangalore, we blend engineering excellence with bespoke aesthetics
                     to transform your space into a beautiful room you'll love specializing in high-end 2 BHK interior
                     design and luxury 3 BHK flat interior design.</p>
                 <a href="contact.html" class="btn-primary">Get Free Quote</a>
+            </div>
+
+            <!-- Stats Counter Bar -->
+            <div class="stats-counter-bar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); padding: 35px 0; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 10; margin-top: 80px;">
+                <div class="container" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 40px;">
+                    <div class="counter-item" style="text-align: center;">
+                        <span style="display: block; font-size: 52px; font-weight: 900; color: #D9E021; line-height: 1; font-family: var(--font-primary);">2K+</span>
+                        <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 3px; color: #fff; font-weight: 700; opacity: 0.7;">Projects Completed</span>
+                    </div>
+                    <div class="counter-item" style="text-align: center; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 40px;">
+                        <span style="display: block; font-size: 52px; font-weight: 900; color: #D9E021; line-height: 1; font-family: var(--font-primary);">25+</span>
+                        <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 3px; color: #fff; font-weight: 700; opacity: 0.7;">Years Legacy</span>
+                    </div>
+                    <div class="counter-item" style="text-align: center; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 40px;">
+                        <span style="display: block; font-size: 52px; font-weight: 900; color: #D9E021; line-height: 1; font-family: var(--font-primary);">2M+</span>
+                        <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 3px; color: #fff; font-weight: 700; opacity: 0.7;">Sq. Ft. Built</span>
+                    </div>
+                </div>
             </div>
 
             <div class="other-verticals">
@@ -152,9 +181,9 @@
 
 
         <!-- Centered Purpose Section -->
-        <section id="services" class="purpose-centered">
+        <section class="purpose-centered">
             <div class="container">
-                <h2 class="purpose-main-title">Designing Interiors with Purpose</h2>
+                <div id="designing-interiors-whisper-root" class="purpose-main-title" style="color: #0A1B3D;"></div>
                 <p class="purpose-description">From initial design support to final delivery, our complete business model ensures excellence at every stage of the project lifecycle.</p>
                 <div class="purpose-actions-centered">
                     <a href="services.html" class="btn-primary-modern">Explore Services</a>
@@ -162,123 +191,110 @@
             </div>
         </section>
 
-        <!-- Portfolio Tabs (Moved) -->
-        <section id="home-portfolio" class="portfolio-switcher">
+
+        <!-- Residential & Commercial Portfolio Section -->
+        <section id="home-portfolio" class="portfolio-section">
             <div class="container">
-                <div class="portfolio-tabs">
+                
+                <div class="portfolio-controls gsap-reveal">
                     <button class="tab-btn active" data-tab="residential">Residential</button>
                     <button class="tab-btn" data-tab="commercial">Commercial</button>
                 </div>
 
-                <div class="tab-wrapper">
+                <div class="tab-content">
+                    <!-- Residential Pane -->
                     <div class="tab-pane active" id="residential">
-                        <div class="portfolio-grid-modern">
-                            <a href="economy.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/economy.jpeg" alt="Economy Interior">
-                                </div>
-                                <div class="card-label">Economy</div>
-                            </a>
-                            <a href="elite.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/elite.jpeg" alt="Elite Interior">
-                                </div>
-                                <div class="card-label">Elite</div>
-                            </a>
-                            <a href="luxe.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/luxe.jpeg" alt="Luxe Interior">
-                                </div>
-                                <div class="card-label">Luxe</div>
-                            </a>
+                        <div class="project-card" onclick="openModal('assets/economy_hero.png')">
+                            <img src="assets/economy_hero.png" alt="Economy Residential">
+                            <div class="project-overlay">
+                                <h3>Economy</h3>
+                                <p>Smart aesthetics, smarter budget.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/elite.jpeg')">
+                            <img src="assets/elite.jpeg" alt="Elite Residential">
+                            <div class="project-overlay">
+                                <h3>Elite</h3>
+                                <p>Refined luxury for sophisticated living.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/luxe.jpeg')">
+                            <img src="assets/luxe.jpeg" alt="Luxe Residential">
+                            <div class="project-overlay">
+                                <h3>Luxe</h3>
+                                <p>Bespoke elegance without compromise.</p>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Commercial Pane -->
                     <div class="tab-pane" id="commercial">
-                        <div class="portfolio-grid-modern">
-                            <a href="industrial.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/industrial.jpeg" alt="Industrial Interior">
-                                </div>
-                                <div class="card-label">Industrial</div>
-                            </a>
-                            <a href="retail.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/retail.jpeg" alt="Retail Interior">
-                                </div>
-                                <div class="card-label">Retail</div>
-                            </a>
-                            <a href="workspaces.html" class="portfolio-card-modern">
-                                <div class="card-img-wrap">
-                                    <img src="assets/workspace.jpeg" alt="Workspaces Interior">
-                                </div>
-                                <div class="card-label">Workspaces</div>
-                            </a>
+                        <div class="project-card" onclick="openModal('assets/industrial.jpeg')">
+                            <img src="assets/industrial.jpeg" alt="Industrial Design">
+                            <div class="project-overlay">
+                                <h3>Industrial</h3>
+                                <p>Precision engineering and architectural scale.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/retail.jpeg')">
+                            <img src="assets/retail.jpeg" alt="Retail Excellence">
+                            <div class="project-overlay">
+                                <h3>Retail</h3>
+                                <p>Captivating brand environments and storefronts.</p>
+                            </div>
+                        </div>
+                        <div class="project-card" onclick="openModal('assets/workspace.jpeg')">
+                            <img src="assets/workspace.jpeg" alt="Modern Workspace">
+                            <div class="project-overlay">
+                                <h3>Workspaces</h3>
+                                <p>Ergonomic environments built for productivity.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
-        <!-- New Crafted Spaces Section (Moved to Bottom) -->
-        <section class="home-services-list">
-            <div class="container modern-list-container">
+        <!-- Design Philosophy & Categories Section -->
+        <section id="services" class="tiered-pricing">
+            <div class="container tier-content">
                 <div class="tier-header">
                     <div class="tier-left">
-                        <h2 class="list-main-title">Great spaces are crafted with skill, passion, and attention to detail.</h2>
+                        <h2 class="premium-reveal">
+                            <div class="reveal-line">Great Spaces are Crafted with Skill,</div>
+                            <div class="reveal-line">Passion, and Attention to Detail.</div>
+                        </h2>
                     </div>
                     <div class="tier-right">
                         <p>From initial design support to final delivery, our complete business model ensures excellence at every stage of the project lifecycle.</p>
-                        <a href="services.html" class="discover-more">
-                            Discover more
-                            <span class="arrow-icon">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </span>
-                        </a>
                     </div>
                 </div>
 
-                
-                <div class="feature-list-modern">
-                    <!-- Item 1 -->
-                    <div class="feature-list-item horizontal-item">
-                        <div class="item-text">
-                            <h3>Residential Interiors</h3>
-                            <p>Curating the Art of Living Well from modern 2 BHK flat design to expansive 3 BHK interior design.</p>
+                <div class="category-list">
+                    <div class="category-item">
+                        <div class="category-img-wrap">
+                            <img src="assets/residencial interiors.jpeg" alt="Residential Interiors">
                         </div>
-                        <div class="item-img-wrap">
-                            <img src="assets/residencial interiors.jpeg" alt="Residential Interior" class="list-item-img">
-                        </div>
+                        <h3>Residential Interiors</h3>
+                        <p>Curating the Art of Living Well from modern 2 BHK flat design to expansive 3 BHK interior design.</p>
                     </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="feature-list-item horizontal-item">
-                        <div class="item-text">
-                            <h3>Living Room Designs</h3>
-                            <p>The Social Heart: Timeless living spaces tailored for connection.</p>
+                    <div class="category-item">
+                        <div class="category-img-wrap">
+                            <img src="assets/living room.jpeg" alt="Living Room Designs">
                         </div>
-                        <div class="item-img-wrap">
-                            <img src="assets/living room.jpeg" alt="Living Room Design" class="list-item-img">
-                        </div>
+                        <h3>Living Room Designs</h3>
+                        <p>The Social Heart: Timeless living spaces tailored for connection.</p>
                     </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="feature-list-item horizontal-item">
-                        <div class="item-text">
-                            <h3>Kitchens</h3>
-                            <p>The Culinary Studio: Functional kitchen interior design that inspires.</p>
+                    <div class="category-item">
+                        <div class="category-img-wrap">
+                            <img src="assets/kituchen.jpeg" alt="Kitchens">
                         </div>
-                        <div class="item-img-wrap">
-                            <img src="assets/kituchen.jpeg" alt="Kitchen Design" class="list-item-img">
-                        </div>
+                        <h3>Kitchens</h3>
+                        <p>The Culinary Studio: Functional kitchen interior design that inspires.</p>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Exclusive Partners Section -->
         <section class="exclusive-partners">
             <div class="container">
@@ -318,7 +334,7 @@
                     <img src="assets/banner.jpeg" alt="Join Neo Studio" class="promo-banner-img">
                     <div class="banner-promo-overlay">
                         <h2 class="banner-overlay-text">Don't wait another day to create the <br> home you've always wanted</h2>
-                        <a href="contact.html" class="btn-primary-modern">Get Free Quote</a>
+                        <a href="contact.html" class="btn-primary">Get Free Quote</a>
                     </div>
                 </div>
             </div>
@@ -434,9 +450,14 @@
         <section id="about" class="why-choose-us">
             <div class="container">
                 <div class="why-header">
-                    <h2 class="premium-reveal">
-                        <div class="reveal-line">Why Choose Us?</div>
-                    </h2>
+                    <div class="why-left reveal-left">
+                        <h2 class="premium-reveal">
+                            <div class="reveal-line">Why Choose Us?</div>
+                        </h2>
+                        <div class="why-img-container">
+                            <img src="assets/why-choose-us.png" alt="Why Choose Neo Studio" class="why-main-img">
+                        </div>
+                    </div>
                     <div class="why-desc">
                         <div class="why-card reveal-up">
                             <h3>Our Design Philosophy</h3>
@@ -513,7 +534,6 @@
 <section class="testimonials-section">
             <div class="container testimonials-header-grid">
                 <div class="header-left">
-                    <span class="trusted-badge">Trusted by 12k+</span>
                 </div>
                 <div class="header-right">
                     <h2 class="premium-reveal" style="font-size: 64px; line-height: 0.9; text-align: right;">
@@ -618,6 +638,7 @@
             </div>
         </section>
 
+
         <!-- Legacy of Arul Group Section -->
 
 
@@ -659,7 +680,7 @@
                     </div>
                     <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end;">
                         <a href="contact.html" class="btn-primary cta-quote-btn" style="background: #e6e632; color: #000; border: 2px solid #000; box-shadow: 5px 5px 0px #000; padding: 18px 40px; font-weight: 800; border-radius: 12px; text-transform: none; font-size: 20px; white-space: nowrap;">Get Free Quote</a>
-                        <p class="cta-desc-text" style="color: rgba(255,255,255,0.9); font-size: 18px; line-height: 1.5; max-width: 400px; text-align: right;">From outdated kitchens to tired bathrooms, we<br>create spaces that make you fall in love with<br>your home again</p>
+                        <p class="cta-desc-text" style="color: rgba(255,255,255,0.9); font-size: 18px; line-height: 1.5; max-width: 600px; text-align: right;">From outdated kitchens to tired bathrooms, we<br>create spaces that make you fall in love<br>with your home again</p>
                     </div>
                 </div>
             </div>
@@ -909,7 +930,7 @@
                     <h2>Let's Discuss your Vision<br>Connect with us</h2>
                 </div>
                 <div class="footer-desc">
-                    <p>From outdated kitchens to tired bathrooms, we create spaces that make you fall in love with your home again.</p>
+                    <p>From outdated kitchens to tired bathrooms, we<br>create spaces that make you fall in love<br>with your home again.</p>
                 </div>
             </div>
             
